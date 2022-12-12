@@ -1,0 +1,47 @@
+@mixin  responsive($breakpoint) {
+    @if $breakpoint==phone{
+        @media screen and (max-width:430px){@content};
+    }
+    @if $breakpoint==tab{
+        @media screen and (max-width:768px){@content};
+    }
+
+}
+
+
+.card{
+    height: 300px;
+    width: 300px;
+    left: 313px;
+    border-radius: 12px;
+    padding: 10px;
+    background-color: #000000;
+    margin-right: -4px;
+    color: white;
+
+    @include responsive(tab){
+        height: 300px;
+        width: 300px;
+        border-radius: 12px;
+        padding: 10px;
+  
+    }
+    @include responsive(phone){
+        height: 200px;
+        width: 200px;
+        border-radius: 12px;
+        padding: 10px;     
+        
+    }
+    
+}
+
+.para1{
+    font-family: DM Sans;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31px;
+    text-align: center;
+    padding-top: 40%;
+    
+}
