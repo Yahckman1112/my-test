@@ -18,18 +18,26 @@ function LandingPage(props) {
     const [movies, setMovies] = useState([]);
 
 
-  
- useEffect(() => {
-  async function getMovie() {
-    const result = await axios.get('http://jsonplaceholder.typicode.com/albums');
-    setMovies(result.data);
-    console.log(result.data); 
+const options = {
+  method: 'GET',
+  url: 'https://online-movie-database.p.rapidapi.com/title/find',
+  params: {q: 'game of thr'},
+  headers: {
+    'X-RapidAPI-Key': '0a46156023mshc11410caa674925p11bb2bjsn13510e42b370',
+    'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
   }
-  getMovie();
-}, []);
+};
 
 
-
+useEffect(() => {
+  
+  axios.request(options).then(function (response) {
+    setMovies(response.data.results);
+  }).catch(function (error) {
+    console.error(error);
+  });
+     
+   }, []);
 
     // console.log(movies.filter(movie=>movie.movieName.toLowerCase().includes(value)));
   return (
