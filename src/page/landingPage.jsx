@@ -55,7 +55,7 @@ useEffect(() => {
         <div className="form">
           <FormControl>
             <FormLabel className={styles.para3}>Search</FormLabel>
-            <Input type="text" onChange={(e)=>setValue(e.target.value)} />
+            <Input className="inp" type="text" onChange={(e)=>setValue(e.target.value)} />
           </FormControl>
         </div>
         <div className="swiper">
@@ -110,52 +110,7 @@ useEffect(() => {
         
       </Swiper>
                 {/* sweeps */}
-              <p className={styles.para4}>Action</p>
-
-                <Swiper
-       breakpoints={{
-         320:{
-          width:320,
-          slidesPerView:1.51,
-          spaceBetween:10, 
-         },
-          640: {
-            width: 640,
-            slidesPerView: 3.65,
-            spaceBetween:0,
-          },
-         
-          768: {
-            width: 768,
-            slidesPerView:2,
-            spaceBetween:10,
-         
-
-          },
-        }}
-        modules={[Navigation, Scrollbar]}
-        spaceBetween={0}
-        slidesPerView={4}
-        navigation
-        pagination={{ clickable: true }}
-        speed={500}
-        initialSlide={3}
-       
-        
-      >
-          <div>
-            {movies.filter((movie)=>(movie.title.toLocaleLowerCase().includes(value)))
-            .map(movie=>(
-                <SwiperSlide key={movie.id}>
-                    <Card data={movie.title}/>
-                </SwiperSlide>
-                      ))}
-          </div>
-        
-
-           
-        
-      </Swiper>
+             
         </div>
       </div>
     </div>
